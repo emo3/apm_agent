@@ -1,0 +1,22 @@
+# show node's
+knife node list
+
+# add recipe install apm agent to a node
+for x in chefsrv myapm websrv; do
+  knife node run_list add $x 'recipe[apm_agent::install_agent]'
+done
+
+# show a node's details
+for x in chefsrv myapm websrv; do
+  knife node show $x
+done
+
+# run a recipe on a node
+for x in chefsrv myapm websrv; do
+  knife ssh $x \
+"sudo chef-client -o 'recipe[apm_agent::install_agent]'" \
+-x vagrant -P vagrant
+done
+
+# uninstall all apm agents
+cd /tmp; sudo /agents/apm/bin/smai-agent.sh uninstall_all force
