@@ -1,0 +1,49 @@
+#############################################################################
+#
+# IBM Confidential
+# OCO Source Materials
+# 5724-C04
+#
+# Copyright IBM Corp. 2014
+# The source code for this program is not published or otherwise
+# divested of its trade secrets, irrespective of what has
+# been deposited with the U.S. Copyright Office.
+#
+############################################################################
+
+# This is a sample silent configuration response file
+
+# To configure an agent using this silent response file:
+# Run command: agent_install_dir/bin/db2-agent.sh config <instance_name> agent_install_dir/
+#              samples/DB2_silent_config.txt
+#   
+# Syntax rules:
+# where <instance_name> is the DB2 instance name you want to monitor
+
+
+
+################## PRIMARY  CONFIGURATION ##################
+
+CMSCONNECT=NO
+
+
+
+################## DB2 PARAMETERS ##################
+
+
+# The absolute path and file name for DB2 customized SQL definition file
+KUD_DB2_SQL_PATH=
+
+# The directory of the DB2 diagnostics log file. It includes path only
+KUD_DIAGLOG_PATH=
+
+# Use the MSGID to filter the Diagnostic log. The MSGID filter requires the regular expression
+KUD_DIAGLOG_MSGID_FILTER=
+
+# A Yes or No preference as to whether DB2 agent should monitor partitions in remote hosts
+KUD_MONITOR_REMOTE_PARTITIONS=Yes
+
+# A Yes or No preference as to whether DB2 agent should monitor all databases
+KUD_MONITOR_ALL_DATABASES=Yes
+
+
