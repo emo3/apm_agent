@@ -7,7 +7,7 @@ include_recipe '::install_agent'
 # configure db2 agent using silent file, write output to log
 execute 'configure_db2' do
   command "#{node['apm_agent']['agent_bin']} config db2apm \
--p #{node['apm_agent']['apm_dir']}/samples/DB2_silent_config.txt > \
+#{node['apm_agent']['apm_dir']}/samples/DB2_silent_config.txt > \
 #{node['temp_dir']}/#{node['apm_agent']['log_file']} 2>&1"
   cwd node['apm_agent']['apm_dir']
   # not_if { File.exist?(node['apm_agent']['agent_bin']) }
