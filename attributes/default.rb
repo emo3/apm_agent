@@ -8,6 +8,7 @@ default['apm_agent']['aix_name']    = "APM_AIX_Agent_Install_#{node['apm_agent']
 default['apm_agent']['agents_dir']  = '/agents'
 default['apm_agent']['apm_dir']     = '/agents/apm'
 default['apm_agent']['silent_file'] = 'APM_silent_install-os.txt'
+default['apm_agent']['agent_bin']   = "#{node['apm_agent']['apm_dir']}/bin/os-agent.sh"
 default['apm_agent']['log_file']    = 'agent_install.log'
 default['apm_agent']['rhel']        = %w(bc)
 default['apm_ip']                   = '10.1.1.20'

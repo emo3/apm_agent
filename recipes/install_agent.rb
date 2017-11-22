@@ -8,7 +8,7 @@ raise "*** Machine #{node['kernel']['machine']} is NOT coded for!" unless node['
 remote_file "#{node['apm_agent']['apm_dir']}/#{node['apm_agent']['agents_lnx']}" do
   source "#{node['depot_url']}/#{node['apm_agent']['agents_lnx']}"
   not_if { File.exist?("#{node['apm_agent']['apm_dir']}/#{node['apm_agent']['lnx_name']}/installAPMAgents.sh") }
-  not_if { File.exist?("#{node['apm_agent']['apm_dir']}/bin/os-agent.sh") }
+  not_if { File.exist?(node['apm_agent']['agent_bin']) }
   owner 'root'
   group 'root'
   mode '0644'
@@ -21,7 +21,7 @@ tar_extract "#{node['apm_agent']['apm_dir']}/#{node['apm_agent']['agents_lnx']}"
   creates "#{node['apm_agent']['apm_dir']}/#{node['apm_agent']['lnx_name']}/installAPMAgents.sh"
   compress_char ''
   not_if { File.exist?("#{node['apm_agent']['apm_dir']}/#{node['apm_agent']['lnx_name']}/installAPMAgents.sh") }
-  not_if { File.exist?("#{node['apm_agent']['apm_dir']}/bin/os-agent.sh") }
+  not_if { File.exist?(node['apm_agent']['agent_bin']) }
 end
 
 # delete the apm tar file
@@ -44,7 +44,7 @@ execute 'install_agent' do
 -p #{node['temp_dir']}/#{node['apm_agent']['silent_file']} > \
 #{node['temp_dir']}/#{node['apm_agent']['log_file']} 2>&1"
   cwd node['apm_agent']['apm_dir']
-  not_if { File.exist?("#{node['apm_agent']['apm_dir']}/bin/os-agent.sh") }
+  not_if { File.exist?(node['apm_agent']['agent_bin']) }
   user 'root'
   group 'root'
   umask '022'
