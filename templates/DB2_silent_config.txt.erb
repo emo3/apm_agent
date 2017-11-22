@@ -38,7 +38,7 @@ KUD_DB2_SQL_PATH=<%= node['apm_agent']['apm_dir'] %>/config/kudcussql.properties
 KUD_DIAGLOG_PATH=/home/db2apm/sqllib/db2dump
 
 # Use the MSGID to filter the Diagnostic log. The MSGID filter requires the regular expression
-KUD_DIAGLOG_MSGID_FILTER=ADM1\d*1E|ADM222\d2W.
+KUD_DIAGLOG_MSGID_FILTER="ADM1\d*1E|ADM222\d2W"
 
 # A Yes or No preference as to whether DB2 agent should monitor partitions in remote hosts
 KUD_MONITOR_REMOTE_PARTITIONS=Yes
