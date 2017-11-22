@@ -2,7 +2,7 @@ agent = 'db2'
 node.default['apm_agent']['silent_file'] = "APM_silent_install-#{agent}.txt"
 node.default['apm_agent']['agent_bin']   = "#{node['apm_agent']['apm_dir']}/bin/#{agent}-agent.sh"
 node.default['apm_agent']['log_file']    = "agent_install-#{agent}.log"
-node.default['apm_agent']['silent_config'] = "APM_silent_config-#{agent}.txt"
+node.default['apm_agent']['silent_config'] = "DB2_silent_config.txt"
 node.default['apm_agent']['config_log'] = "agent_config-#{agent}.log"
 
 include_recipe '::install_agent'
