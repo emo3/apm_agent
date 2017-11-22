@@ -2,7 +2,7 @@ agent = 'db2'
 node.default['apm_agent']['silent_file'] = "APM_silent_install-#{agent}.txt"
 node.default['apm_agent']['agent_bin']   = "#{node['apm_agent']['apm_dir']}/bin/#{agent}-agent.sh"
 node.default['apm_agent']['log_file']    = "agent_install-#{agent}.log"
-node.default['apm_agent']['silent_config'] = "DB2_silent_config.txt"
+node.default['apm_agent']['silent_config'] = 'DB2_silent_config.txt'
 node.default['apm_agent']['config_log'] = "agent_config-#{agent}.log"
 node.default['apm_agent']['config_bin'] = "#{node['apm_agent']['apm_dir']}/config/myapm_ud_db2apm.cfg"
 
@@ -27,4 +27,18 @@ execute "configure_#{agent}" do
   user 'root'
   group 'root'
   umask '022'
+end
+
+# start db2 agent
+execute "configure_#{agent}" do
+  command "#{node['apm_agent']['agent_bin']} start db2apm"
+  cwd node['apm_agent']['apm_dir']
+  not_if 'ps aux | grep kuddb2 | grep myapm'
+  user 'root'
+  group 'root'
+  umask '022'
+end
+
+file "#{node['temp_dir']}/#{node['apm_agent']['silent_config']}" do
+  action :delete
 end
