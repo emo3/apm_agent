@@ -4,6 +4,7 @@ node.default['apm_agent']['agent_bin']   = "#{node['apm_agent']['apm_dir']}/bin/
 node.default['apm_agent']['log_file']    = "agent_install-#{agent}.log"
 node.default['apm_agent']['silent_config'] = "DB2_silent_config.txt"
 node.default['apm_agent']['config_log'] = "agent_config-#{agent}.log"
+node.default['apm_agent']['config_bin'] = "#{node['apm_agent']['apm_dir']}/config/myapm_ud_db2apm.cfg"
 
 include_recipe '::install_agent'
 
@@ -22,7 +23,7 @@ execute "configure_#{agent}" do
 #{node['temp_dir']}/#{node['apm_agent']['silent_config']} > \
 #{node['temp_dir']}/#{node['apm_agent']['config_log']} 2>&1"
   cwd node['apm_agent']['apm_dir']
-  # not_if { File.exist?(node['apm_agent']['agent_bin']) }
+  not_if { File.exist?(node['apm_agent']['config_bin']) }
   user 'root'
   group 'root'
   umask '022'

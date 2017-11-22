@@ -10,6 +10,7 @@ default['apm_agent']['apm_dir']     = '/agents/apm'
 default['apm_agent']['silent_file'] = 'APM_silent_install-os.txt'
 default['apm_agent']['silent_config'] = 'APM_silent_config-os.txt'
 default['apm_agent']['agent_bin']   = "#{node['apm_agent']['apm_dir']}/bin/os-agent.sh"
+default['apm_agent']['config_bin']  = "#{node['apm_agent']['apm_dir']}/config/kcirunas.cfg"
 default['apm_agent']['log_file']    = 'agent_install-os.log'
 default['apm_agent']['config_log']  = 'agent_config-os.log'
 default['apm_agent']['rhel']        = %w(bc)
