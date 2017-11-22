@@ -30,7 +30,7 @@ execute "configure_#{agent}" do
 end
 
 # start db2 agent
-execute "configure_#{agent}" do
+execute "start_#{agent}" do
   command "#{node['apm_agent']['agent_bin']} start db2apm"
   cwd node['apm_agent']['apm_dir']
   not_if 'ps aux | grep kuddb2 | grep myapm'
