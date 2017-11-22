@@ -49,7 +49,7 @@ depends 'apm_agent`'
 Then, in a recipe:
 
 ```
-include_recipe 'apm_agent`::install_agent'
+include_recipe 'apm_agent`::install_agent-os'
 ```
 
 If your cookbook provides resources, be sure to include examples of how to use
