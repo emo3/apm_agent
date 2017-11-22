@@ -1,0 +1,61 @@
+#############################################################################
+#
+# IBM Confidential
+# OCO Source Materials
+# 5724-C04
+#
+# Copyright IBM Corp. 2009
+# The source code for this program is not published or otherwise
+# divested of its trade secrets, irrespective of what has
+# been deposited with the U.S. Copyright Office.
+#
+#############################################################################
+
+#############################################################################
+#
+#Monitoring Agent for WebSphere Applications Version 07.03.00.14.00
+#
+#                  Silent Configuration Response File
+#
+#############################################################################
+
+# This is a sample silent configuration response file to configure parameters of Monitoring Agent for WebSphere Applications
+# To configure an agent using this silent response file:
+#   1) copy this file to another location and modify the necessary parameters
+#   2) run "was-agent.sh config <silent_response_file>"
+#      - give an absolute path for the silent_response_file
+#      - was-agent.sh is under agent_home/bin directory.
+
+# Syntax rules:
+# - Comment lines begin with "#"
+# - Blank lines are ignored; do not create blank lines with space/tab characters in them
+# - Parameter lines are PARAMETER=value (do not put space before the PARAMETER)
+# - Space before or after an equal sign is OK
+# - Parameter values should NOT contain the following characters $, =, or |
+# - Some parameters are commented out. Uncomment these if you need to activate them.
+
+################## Section CONFIGURATION_TYPE ##################
+
+# configure_type
+# This parameter is required.
+# This is the configuration type. In this options file, the value is tema_configure, you cannot change it.
+configure_type=tema_configure
+
+################## Section KYN_Tema_Config #####################
+# Agent configuration for Monitoring Agent for WebSphere
+
+# KYN_ALT_NODEID
+# Alternative Node ID for identifying this Agent.
+# This parameter is required.
+# This is a unique host id that will determine how the agent will
+# appear in the Tivoli Enterprise Portal navigation tree.
+#KYN_ALT_NODEID=Primary
+
+# KYN_PORT
+# Monitoring Agent for WebSphere listening port.
+# This parameter is required (default is 63335).
+# This is the TCP socket that the agent will listen on for connection
+# requests from the ITCAM for WebSphere Data Collector.
+#KYN_PORT=63335
+
+

@@ -16,7 +16,7 @@
 # To configure an agent using this silent response file:
 # Run command: agent_install_dir/bin/db2-agent.sh config <instance_name> agent_install_dir/
 #              samples/DB2_silent_config.txt
-#   
+#
 # Syntax rules:
 # where <instance_name> is the DB2 instance name you want to monitor
 
@@ -24,7 +24,7 @@
 
 ################## PRIMARY  CONFIGURATION ##################
 
-CMSCONNECT=NO
+CMSCONNECT=YES
 
 
 
@@ -32,18 +32,16 @@ CMSCONNECT=NO
 
 
 # The absolute path and file name for DB2 customized SQL definition file
-KUD_DB2_SQL_PATH=
+KUD_DB2_SQL_PATH=<%= node['apm_agent']['apm_dir'] %>/config/kudcussql.properties
 
 # The directory of the DB2 diagnostics log file. It includes path only
-KUD_DIAGLOG_PATH=
+KUD_DIAGLOG_PATH=/home/db2apm/sqllib/db2dump
 
 # Use the MSGID to filter the Diagnostic log. The MSGID filter requires the regular expression
-KUD_DIAGLOG_MSGID_FILTER=
+KUD_DIAGLOG_MSGID_FILTER=ADM1\d*1E|ADM222\d2W.
 
 # A Yes or No preference as to whether DB2 agent should monitor partitions in remote hosts
 KUD_MONITOR_REMOTE_PARTITIONS=Yes
 
 # A Yes or No preference as to whether DB2 agent should monitor all databases
 KUD_MONITOR_ALL_DATABASES=Yes
-
-

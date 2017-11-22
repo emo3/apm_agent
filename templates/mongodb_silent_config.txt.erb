@@ -1,0 +1,27 @@
+#
+# This is a sample configuration response file for agent MongoDB.
+#
+# It contains an entry for every configuration property.
+# Entries for optional properties that have no default value are included in comments.
+# Ensure that all uncommented properties have a value before configuring the agent.
+#
+
+# Type: Allows the user to say whether their system is a cluster ( Value = 1 ), a single replication set ( Value = 2 ), or a single mongod instance ( Value = 3 ). This value is optional. By default the agent will monitor a cluster.
+# Valid values: 1 (Cluster), 2 (Single Set), 3 (Single Instance)
+#KKJ_TYPE=1
+
+# Port: Port Number for the router of a MongoDB cluster or a mongod instance of a MongoDB replication set or single mongod instance being monitored. This value is optional. The agent will automatically discover the cluster location if only one is present on the system. This is used to over ride discovery of a cluster or explicitly monitor a replication set or single mongod instance.
+#KKJ_PORT=
+
+# Host: The ip address for the host system of the router or the mongod instance. This value is optional. The agent will automatically discover the default ip address. This is used to select a particular interface on a system where MongoDB is bound to only one of several addresses. 
+#KKJ_HOST=
+
+# Authentication: Confirm whether authentication is enabled.
+# Valid values: YES (Enabled), NO (Disabled)
+#MONGODB_AUTH_ENABLED=NO
+
+# UserName: You must provide a user name for the host system of the router or the mongod instance. You must assign a minimum amount of roles to the user.
+KKJ_USER=
+
+# Password: You must enter a password for the host system of the router or the mongod instance.
+KKJ_PASS=

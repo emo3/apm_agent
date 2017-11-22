@@ -1,0 +1,23 @@
+#
+# This is a sample configuration response file for agent Ruby.
+#
+# It contains an entry for every configuration property.
+# Entries for optional properties that have no default value are included in comments.
+# Entries for subnode RAP are given a sample subnode instance name of rap1.
+# Ensure that all uncommented properties have a value before configuring the agent.
+#
+
+# Fully Qualified Rubies Bin Directory: Fully qualified path to the bin directory containing the "ruby" and "rake" executables. For example, if using RVM this could be in somewhere like "~/.rvm/rubies/<ruby version>/bin". You can find the fully qualified path by running the following command in your terminal: "which ruby".
+KKM_RUBY_RUNTIME_BIN_LOCATION=
+
+# Auto Detect Ruby Applications Flag: This flag toggles the Ruby agent's auto-discovery feature. Set to 'Y' to enable and 'N' to disable.
+#KKM_AUTO_DETECT_RUBY_APPLICATIONS=Y
+
+# Application Server Process Name: Process name for the Ruby application server processes. Common examples include the "thin", "puma", "unicorn", and "passenger". If you search the output of "ps" in your console you can find them. The default search string is "ruby" since starting an application with "rails server -d" shows "ruby" as the process name. Please input ".ruby.bin" if your Rails is installed by Ruby Stack and your Rails application is started with command "rails". 
+#KKM_STARTUP_CMD=ruby
+
+# Port Number: The port that the agent will use to listen on for data from socket clients.  A value of 0 indicates an ephemeral port will be used. Please note that this does NOT correspond to any ports used by your application(s). This port is for internal use by the agent.
+#CP_PORT=0
+
+# Application Home Directory: Home directory for the Ruby Application. This value is optional since the agent can automatically discover running applications if that feature is enabled. Use this value to make the agent monitor specific applications. 
+#KKM_APP_HOME_DIR.rap1=
