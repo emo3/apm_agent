@@ -3,6 +3,9 @@ include_recipe '::setapmip'
 include_recipe '::filesystem'
 include_recipe '::fix_agent'
 
+# turn off Prerequisite Scanner
+ENV['SKIP_PRECHECK'] = 'Yes'
+
 raise "*** Machine #{node['kernel']['machine']} is NOT coded for!" unless node['kernel']['machine'] == 'x86_64'
 # Download the Linux APM agent binary
 remote_file "#{node['apm_agent']['apm_dir']}/#{node['apm_agent']['agents_lnx']}" do
