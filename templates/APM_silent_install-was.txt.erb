@@ -1,0 +1,127 @@
+#---------------------------------------------------------------------
+# Licensed Materials - Property of IBM
+# 5725-M99
+#
+# (C) Copyright IBM Corporation 2015. All Rights Reserved.
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corporation.
+#---------------------------------------------------------------------
+# This is a sample silent installation response file
+#
+# To install using this silent response file:
+#   1) modify the necessary parameters
+#   2) run "installAPMAgents.sh -p <silent_response_file>"
+#
+# Syntax rules:
+# - Comment lines begin with "#"
+# - Blank lines are ignored
+# - Parameter lines are PARAMETER=value
+#   - Parameter must start at the beginning of the line.
+#   - No spaces before or after an equal sign.
+#   - Space after the equal sign require double quotes at the beginning and end of the value.
+#   - Parameter values should NOT contain the following characters $, =, or |
+#---------------------------------------------------------------------
+
+#---------------------------------------------------------------------
+# Step 1: License Agreement. ( Required )
+# The installation will copy license files to a directory called licenses in your
+# install directory. Uncomment the following statement to agree to the license.
+# License_Agreement keyword must start in the first column.
+#
+
+License_Agreement="I agree to use the software only in accordance with the installed license."
+
+#
+# Note: You must agree with and uncomment the preceding statement to
+# proceed with the silent installation.
+#---------------------------------------------------------------------
+
+
+#---------------------------------------------------------------------
+# Step 2: Select agent(s) to install ( Required )
+# Select one or more agents you want to install.
+# Uncomment the INSTALL_AGENT line(s) below for the agent(s) you want to install.
+# INSTALL_AGENT keyword must start in the first column
+#---------------------------------------------------------------------
+# Install Monitoring Agent for Cisco UCS
+#INSTALL_AGENT=ciscoucs
+
+# Install Monitoring Agent for DataPower
+#INSTALL_AGENT=datapower
+
+# Install Monitoring Agent for DB2
+#INSTALL_AGENT=db2
+
+# Install Monitoring Agent for HTTP Server
+#INSTALL_AGENT=http_server
+
+# Install Monitoring Agent for JBoss
+#INSTALL_AGENT=jboss
+
+# Install Monitoring Agent for Linux KVM
+#INSTALL_AGENT=kvm
+
+# Install Monitoring Agent for MongoDB
+#INSTALL_AGENT=mongodb
+
+# Install Monitoring Agent for MySQL
+#INSTALL_AGENT=mysql
+
+# Install Monitoring Agent for NetApp Storage
+#INSTALL_AGENT=netapp_storage
+
+# Install Monitoring Agent for Nodejs
+#INSTALL_AGENT=nodejs
+
+# Install Monitoring Agent for OpenStack
+#INSTALL_AGENT=openstack
+
+# Install Monitoring Agent for Oracle Database
+#INSTALL_AGENT=oracle
+
+# Install Monitoring Agent for Linux OS
+#INSTALL_AGENT=os
+
+# Install Monitoring Agent for PHP
+#INSTALL_AGENT=php
+
+# Install Monitoring Agent for PostgreSQL
+#INSTALL_AGENT=postgresql
+
+# Install Monitoring Agent for Ruby
+#INSTALL_AGENT=ruby
+
+# Install Response Time Monitoring Agent
+#INSTALL_AGENT=rt
+
+# Install Monitoring Agent for Siebel
+#INSTALL_AGENT=siebel
+
+# Install Monitoring Agent for Tomcat
+#INSTALL_AGENT=tomcat
+
+# Install Monitoring Agent for VMware VI
+#INSTALL_AGENT=vmware_vi
+
+# Install Monitoring Agent for WebSphere Applications
+INSTALL_AGENT=was
+
+# Install Monitoring Agent for WebLogic
+#INSTALL_AGENT=weblogic
+
+# Install Monitoring Agent for WebSphere Infrastructure Manager
+#INSTALL_AGENT=wim
+
+# Install all agents list above
+#INSTALL_AGENT=all
+
+# Step 3: Specify the agent installation directory.
+# Uncomment the AGENT_HOME line, and specify your custom directory, if you do not want to use the default of /opt/ibm/apm/agent
+# Path can not be longer than 70 characters
+AGENT_HOME=<%= node['apm_agent']['apm_dir'] %>
+
+# If this is an upgrade from pre-FP6 to FP6 on Linux then migrate agents'
+# configuration to new location. Uncomment the line below to allow migration.
+# If you don't want migration to occur then comment out the line.
+#MIGRATE_CONF=yes
