@@ -13,6 +13,9 @@ describe 'apm_agent::install_agent' do
       runner = ChefSpec::ServerRunner.new(platform: 'redhat', version: '7.4')
       runner.converge(described_recipe)
     end
+    before do
+      stub_command('ps aux | grep -v grep | grep klzagent').and_return(true)
+    end
 
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error

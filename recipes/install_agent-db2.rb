@@ -2,7 +2,7 @@ agent = 'db2'
 node.default['apm_agent']['silent_file'] = "APM_silent_install-#{agent}.txt"
 node.default['apm_agent']['agent_bin']   = "#{node['apm_agent']['apm_dir']}/bin/#{agent}-agent.sh"
 node.default['apm_agent']['log_file']    = "agent_install-#{agent}.log"
-node.default['apm_agent']['silent_config'] = 'DB2_silent_config.txt'
+node.default['apm_agent']['silent_config'] = "#{agent}_silent_config.txt"
 node.default['apm_agent']['config_log'] = "agent_config-#{agent}.log"
 node.default['apm_agent']['config_bin'] = "#{node['apm_agent']['apm_dir']}/config/myapm_ud_db2apm.cfg"
 
@@ -17,7 +17,7 @@ template "#{node['temp_dir']}/#{node['apm_agent']['silent_config']}" do
   mode '0644'
 end
 
-# configure db2 agent using silent file, write output to log
+# configure #{agent} agent using silent file, write output to log
 execute "configure_#{agent}" do
   command "#{node['apm_agent']['agent_bin']} config db2apm \
 #{node['temp_dir']}/#{node['apm_agent']['silent_config']} > \
@@ -29,7 +29,7 @@ execute "configure_#{agent}" do
   umask '022'
 end
 
-# start db2 agent
+# start #{agent} agent
 execute "start_#{agent}" do
   command "#{node['apm_agent']['agent_bin']} start db2apm"
   cwd node['apm_agent']['apm_dir']

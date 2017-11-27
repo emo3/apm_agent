@@ -35,6 +35,7 @@ end
 # Write silent contents to a file
 template "#{node['temp_dir']}/#{node['apm_agent']['silent_file']}" do
   source "#{node['apm_agent']['silent_file']}.erb"
+  not_if { File.exist?(node['apm_agent']['agent_bin']) }
   action :create
   owner 'root'
   group 'root'
