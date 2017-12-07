@@ -20,3 +20,5 @@ done
 
 # uninstall all apm agents
 cd /tmp; sudo /agents/apm/bin/smai-agent.sh uninstall_all force
+
+/sfcots/apps/apm/wlp/usr/shared/config/clientSecrets.xml
