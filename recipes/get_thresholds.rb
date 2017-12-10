@@ -2,10 +2,10 @@ include_recipe '::get_token'
 
 # gu_header = %w(_id _href _modifiedAt _modifiedBy label description _isDefault configuration function)
 uri = URI.parse('https://myapm:8091/1.0/thresholdmgmt/threshold_types/itm_private_situation/thresholds')
-# puts("GT:access_token=#{node['apm']['access_token']}")
+# puts("GT:access_token=#{node['apm_agent']['access_token']}")
 request = Net::HTTP::Get.new(uri)
 request.content_type = 'application/json'
-request['Authorization'] = "Bearer #{node['apm']['access_token']}"
+request['Authorization'] = "Bearer #{node['apm_agent']['access_token']}"
 request['Accept'] = 'application/json'
 request['X-Ibm-Service-Location'] = 'na'
 req_options = {

@@ -25,6 +25,8 @@ suites:
   - name: myagent
     run_list:
       - recipe[apm_agent::install_agent]
+#      - recipe[apm_agent::install_decoder]
+#      - recipe[apm_agent::get_token]
     verifier:
       inspec_tests:
         - test/smoke/default
