@@ -27,7 +27,8 @@ suites:
 #      - recipe[apm_agent::install_agent]
 #      - recipe[apm_agent::install_decoder]
 #      - recipe[apm_agent::get_token]
-      - recipe[apm_agent::get_threshold]
+#      - recipe[apm_agent::get_threshold]
+      - recipe[apm_agent::get_users]
 #      - recipe[apm_agent::create_threshold]
     verifier:
       inspec_tests:
