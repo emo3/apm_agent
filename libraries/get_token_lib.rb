@@ -48,9 +48,10 @@ module Gettoken
       end
       if response.is_a?(Net::HTTPSuccess)
         token1 = JSON.parse(response.body)
-        got_token(token1['access_token'])
+        puts "access_token=#{token1['access_token']}"
+        node.default['apm_agent']['access_token'] = token1['access_token']
       else
-        got_token(response.code)
+        node.default['apm_agent']['access_token'] = response.code
       end
     end # def
   end # Helper
