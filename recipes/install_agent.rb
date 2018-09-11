@@ -1,5 +1,14 @@
-include_recipe '::setchefsrv'
-include_recipe '::setapmip'
+set_hostname 'set apm server' do
+  host_ip   node['apm_agent']['apm_ip']
+  host_name node['apm_agent']['apm_name']
+  action :run
+end
+
+set_hostname 'set chefsrv server' do
+  host_ip   node['apm_agent']['chefsrv_ip']
+  host_name node['apm_agent']['chefsrv_name']
+  action :run
+end
 include_recipe '::filesystem'
 include_recipe '::fix_agent'
 

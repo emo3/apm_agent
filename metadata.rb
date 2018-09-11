@@ -19,7 +19,5 @@ supports 'redhat'
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/apm_agent`'
-depends 'lvm'
-depends 'limits'
-depends 'hostsfile'
+depends 'server_utils', '~> 0.1.0'
 depends 'tar'

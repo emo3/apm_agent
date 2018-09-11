@@ -5,6 +5,7 @@ default['apm_agent']['agents_aix']    = "apm_base_agents_aix_#{node['apm_agent']
 default['apm_agent']['lnx_name']      = "APM_Agent_Install_#{node['apm_agent']['version']}"
 default['apm_agent']['pnx_name']      = "APM_PLINUXLE_Agent_Install_#{node['apm_agent']['version']}"
 default['apm_agent']['aix_name']      = "APM_AIX_Agent_Install_#{node['apm_agent']['version']}"
+default['apm_agent']['lvg_name']      = 'apmvg'
 default['apm_agent']['agents_dir']    = '/agents'
 default['apm_agent']['apm_dir']       = '/agents/apm'
 default['apm_agent']['decoder_dir']   = '/agents/apm/decoder'
